@@ -1,0 +1,74 @@
+---
+title: "Title"
+author: "Johan Larsson"
+date: "`r Sys.Date()`"
+institute: "Department of Statistics, Lund University"
+output: 
+  binb::metropolis:
+    fonttheme: "serif"
+    latex_engine: "pdflatex"
+    citation_package: "biblatex"
+header-includes:
+  - \usepackage{libertinus}
+  - \usepackage[lcgreekalpha]{libertinust1math}
+  - \usepackage[scaled=0.96,varqu,varl]{inconsolata}
+  - \usepackage{mathtools}
+  - \usepackage[scr=boondoxo]{mathalfa}
+---
+
+```{r, include = FALSE}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+# Fix subfigs for rmarkdown -> latex
+if (identical(knitr:::pandoc_to(), 'latex'))
+  knitr::knit_hooks$set(plot = knitr::hook_plot_tex)
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dev = "pdf",
+  dev.args = list(pointsize = 8),
+  crop = TRUE,
+  autodep = TRUE
+)
+
+library(ggplot2)
+library(extrafont)
+theme_set(theme_bw(base_size = 10))
+
+options(digits = 3)
+```
+
+# First Section
+
+## First Frame
+
+```{r}
+ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point() +
+  ggtitle("Fuel Efficiency of 32 Cars") +
+  xlab("Weight (x1000 lb)") + ylab("Miles per Gallon") +
+  theme(text=element_text(size=16,  family="serif"))
+```
+
+
+# Second Section
+
+## Second Frame
+
+### Bulleted Lists
+
+- Element A
+- Element B
+    - B.1
+    - B.2
+- Element C    
+
+## Columns
+
+::: {.columns}
+:::: {.column width=0.6}
+Column 1
+::::
+:::: {.column width=0.4}
+Column 2
+::::
+:::

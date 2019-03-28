@@ -1,0 +1,69 @@
+---
+title: "Title"
+subtitle: "Subtitle"
+author:
+  - name: "Johan Larsson"
+affil:
+  - name: "Department of Statistics, Lund University"
+date: "`r Sys.Date()`"
+automark: yes
+colorlinks: yes
+fontpack: yes
+toc: false
+bm: yes
+classoption:
+  - headsepline=true
+header:
+  - pos: ro
+    next: "First"
+  - pos: lo 
+    next: "Johan larsson"
+caption:
+  - labelfont=bf
+  - labelsep=period
+  - font=small
+  - tableposition=below
+  - belowskip=1ex
+  - format=plain
+setkomafont:
+  - element: descriptionlabel
+    commands: \normalfont\scshape\bfseries
+KOMAoptions:
+  - headings=standardclasses
+output: 
+  komadown::scrartcl:
+    citation_package: "biblatex"
+bibliography: statinf
+header-includes:
+  - \usepackage[hscale=0.6,vscale=0.7,vmarginratio={2:2},heightrounded]{geometry}
+  - \DeclareMathOperator{\E}{E}
+  - \DeclareMathOperator{\Var}{Var}
+  - \DeclareMathOperator{\Cov}{Cov}
+  - \renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+---
+
+
+```{r, include = FALSE}
+knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
+
+# Fix subfigs for rmarkdown -> latex
+if (identical(knitr:::pandoc_to(), 'latex'))
+  knitr::knit_hooks$set(plot = knitr::hook_plot_tex)
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  dev = "pdf",
+  dev.args = list(pointsize = 8),
+  crop = TRUE,
+  autodep = TRUE
+)
+
+library(ggplot2)
+library(extrafont)
+theme_set(theme_bw(base_size = 10))
+
+options(digits = 3)
+```
+
+# Introduction
+
