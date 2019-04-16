@@ -13,12 +13,14 @@ header-includes:
   - \usepackage[lcgreekalpha]{libertinust1math}
   - \usepackage[scaled=0.96,varqu,varl]{inconsolata}
   - \usepackage{mathtools}
-  - \usepackage[scr=boondoxo]{mathalfa}
+  - \DeclareMathOperator{\E}{E}
+  - \DeclareMathOperator{\Var}{Var}
+  - \DeclareMathOperator{\Cov}{Cov}
+  - \usepackage{mathalfa}
+  - \usepackage{subfig}
 ---
 
 ```{r, include = FALSE}
-knitr::knit_hooks$set(crop = knitr::hook_pdfcrop)
-
 # Fix subfigs for rmarkdown -> latex
 if (identical(knitr:::pandoc_to(), 'latex'))
   knitr::knit_hooks$set(plot = knitr::hook_plot_tex)
@@ -27,13 +29,18 @@ knitr::opts_chunk$set(
   echo = FALSE,
   dev = "pdf",
   dev.args = list(pointsize = 8),
-  crop = TRUE,
-  autodep = TRUE
+  autodep = TRUE,
+  fig.align = "center",
+  fig.width = 2.5,
+  fig.height = 2.5 
 )
 
-library(ggplot2)
-library(extrafont)
-theme_set(theme_bw(base_size = 10))
+library(lattice)
+library(tactile)
+library(latticeExtra)
+if (!interactive()) {
+  trellis.par.set(tactile::tactile.theme(c(10, 5)))
+}
 
 options(digits = 3)
 ```
@@ -41,14 +48,6 @@ options(digits = 3)
 # First Section
 
 ## First Frame
-
-```{r}
-ggplot(mtcars, aes(x=wt, y=mpg)) + geom_point() +
-  ggtitle("Fuel Efficiency of 32 Cars") +
-  xlab("Weight (x1000 lb)") + ylab("Miles per Gallon") +
-  theme(text=element_text(size=16,  family="serif"))
-```
-
 
 # Second Section
 
