@@ -1,41 +1,17 @@
 ---
 title: "Title"
 subtitle: "Subtitle"
+papersize: a4
 author:
   - name: "Johan Larsson"
-affil:
-  - name: "Department of Statistics, Lund University"
+    affiliation: "Department of Statistics, Lund University"
 date: "`r Sys.Date()`"
-automark: yes
-colorlinks: yes
-fontpack: yes
 toc: false
-bm: yes
-classoption:
-  - headsepline=true
-header:
-  - pos: ro
-    next: "First"
-  - pos: lo 
-    next: "Johan larsson"
-caption:
-  - labelfont=bf
-  - labelsep=period
-  - font=small
-  - tableposition=below
-  - belowskip=1ex
-  - format=plain
-setkomafont:
-  - element: descriptionlabel
-    commands: \normalfont\scshape\bfseries
-KOMAoptions:
-  - headings=standardclasses
+header: true
 output: 
-  komadown::scrartcl:
+  rmdplugr::pdf_article:
     citation_package: "biblatex"
-bibliography: statinf
 header-includes:
-  - \usepackage[hscale=0.6,vscale=0.7,vmarginratio={2:2},heightrounded]{geometry}
   - \DeclareMathOperator{\E}{E}
   - \DeclareMathOperator{\Var}{Var}
   - \DeclareMathOperator{\Cov}{Cov}
@@ -43,30 +19,32 @@ header-includes:
 ---
 
 ```{r, include = FALSE}
-# Fix subfigs for rmarkdown -> latex
-if (identical(knitr:::pandoc_to(), 'latex'))
-  knitr::knit_hooks$set(plot = knitr::hook_plot_tex)
+knitr::knit_hooks$set(embed = hookr::hook_embedfonts)
 
 knitr::opts_chunk$set(
   echo = FALSE,
   dev = "pdf",
-  dev.args = list(pointsize = 8),
-  autodep = TRUE,
+  dev.args = list(pointsize = 8, family = "CM Roman"),
+  cache = FALSE,
   fig.align = "center",
   fig.width = 2.2,
-  fig.height = 2.2 
+  fig.height = 2.2,
+  embed = TRUE
 )
 
+library(extrafont)
 library(lattice)
 library(tactile)
 library(latticeExtra)
 if (!interactive()) {
-  trellis.par.set(tactile::tactile.theme(c(8, 4)))
+  trellis.par.set(tactile.theme(c(8, 4)))
 }
 
 options(digits = 3)
 ```
 
 # Introduction
+
+Bls
 
 

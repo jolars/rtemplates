@@ -1,45 +1,42 @@
 ---
 title: "Title"
 author: "Johan Larsson"
-date: "`r Sys.Date()`"
 institute: "Department of Statistics, Lund University"
+date: "`r Sys.Date()`"
+titlegraphic: lu.pdf
+setbeamertemplate:
+  - item: itemize items
+    value: circle
+fonttheme:
+  - professionalfonts
+  - structurebold
 output: 
-  binb::metropolis:
-    fonttheme: "serif"
-    latex_engine: "pdflatex"
-    citation_package: "biblatex"
-header-includes:
-  - \usepackage{libertinus}
-  - \usepackage[lcgreekalpha]{libertinust1math}
-  - \usepackage[scaled=0.96,varqu,varl]{inconsolata}
-  - \usepackage{mathtools}
-  - \DeclareMathOperator{\E}{E}
-  - \DeclareMathOperator{\Var}{Var}
-  - \DeclareMathOperator{\Cov}{Cov}
-  - \usepackage{mathalfa}
-  - \usepackage{subfig}
+  rmdplugr::pdf_presentation:
+    colortheme: dove
 ---
 
 ```{r, include = FALSE}
-# Fix subfigs for rmarkdown -> latex
-if (identical(knitr:::pandoc_to(), 'latex'))
-  knitr::knit_hooks$set(plot = knitr::hook_plot_tex)
+knitr::knit_hooks$set(embed = hookr::hook_embedfonts)
 
 knitr::opts_chunk$set(
   echo = FALSE,
   dev = "pdf",
-  dev.args = list(pointsize = 8),
-  autodep = TRUE,
-  fig.align = "center",
-  fig.width = 2.5,
-  fig.height = 2.5 
+  fig.width = 5,
+  fig.height = 3.5,
+  dev.args = list(pointsize = 8,
+                  family = "CM Roman"),
+  embed = TRUE
 )
 
-library(lattice)
+library(extrafont)
 library(tactile)
+library(lattice)
 library(latticeExtra)
+
 if (!interactive()) {
-  trellis.par.set(tactile::tactile.theme(c(10, 5)))
+  trellis.par.set(tactile.theme(c(10, 5)))
+} else {
+  trellis.par.set(tactile.theme(c(12, 8)))
 }
 
 options(digits = 3)
