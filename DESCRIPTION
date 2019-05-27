@@ -1,5 +1,5 @@
 Package: rtemplates
-Title: Personal templates for rmarkdown and sweave
+Title: Personal templates for rmarkdown.
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Johan",
@@ -16,3 +16,4 @@ Suggests:
 Language: en-US
 URL: https://github.com/jolars/rtemplates
 BugReports: https://github.com/jolars/rtemplates/issues
+RoxygenNote: 6.1.1
