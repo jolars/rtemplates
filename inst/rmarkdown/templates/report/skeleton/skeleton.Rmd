@@ -2,9 +2,8 @@
 title: "Title"
 subtitle: "Subtitle"
 papersize: a4
-author:
-  - name: "Johan Larsson"
-    affiliation: "Department of Statistics, Lund University"
+author: "Johan Larsson"
+affiliation: "Department of Statistics, Lund University"
 date: "`r Sys.Date()`"
 toc: false
 header: true
@@ -23,9 +22,11 @@ knitr::knit_hooks$set(embed = hookr::hook_embedfonts)
 
 knitr::opts_chunk$set(
   echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  cache = FALSE,
   dev = "pdf",
   dev.args = list(pointsize = 8, family = "CM Roman"),
-  cache = FALSE,
   fig.align = "center",
   fig.width = 2.2,
   fig.height = 2.2,
@@ -36,15 +37,17 @@ library(extrafont)
 library(lattice)
 library(tactile)
 library(latticeExtra)
+library(xtable)
+
 if (!interactive()) {
   trellis.par.set(tactile.theme(c(8, 4)))
 }
 
-options(digits = 3)
+options(digits = 3,
+        xtable.comment = FALSE,
+        xtable.size = "small",
+        xtable.booktabs = TRUE)
 ```
 
 # Introduction
-
-Bls
-
 
