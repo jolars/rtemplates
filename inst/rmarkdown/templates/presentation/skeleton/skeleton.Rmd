@@ -4,15 +4,17 @@ author: "Johan Larsson"
 institute: "Department of Statistics, Lund University"
 date: "`r Sys.Date()`"
 titlegraphic: lu.pdf
-setbeamertemplate:
-  - item: itemize items
-    value: circle
 fonttheme:
   - professionalfonts
   - structurebold
 output: 
   rmdplugr::pdf_presentation:
     colortheme: dove
+header-includes:
+  - | 
+    `\setbeamertemplate{frametitle}[default][center]`{=latex}
+    `\setbeamertemplate{itemize items}[circle]`{=latex}
+    `\setbeamertemplate{headline}{\vskip5ex}`{=latex}
 ---
 
 ```{r setup, include = FALSE}
