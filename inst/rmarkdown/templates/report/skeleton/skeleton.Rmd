@@ -10,11 +10,11 @@ header: true
 output: 
   rmdplugr::pdf_article:
     citation_package: "biblatex"
+    extra_dependencies: "mathtools"
 header-includes:
   - \DeclareMathOperator{\E}{E}
   - \DeclareMathOperator{\Var}{Var}
   - \DeclareMathOperator{\Cov}{Cov}
-  - \usepackage{subfig}
 ---
 
 ```{r, include = FALSE}
@@ -44,10 +44,15 @@ if (!interactive()) {
 }
 
 options(digits = 3,
+        width = 63,
         xtable.comment = FALSE,
         xtable.size = "small",
-        xtable.booktabs = TRUE)
+        xtable.booktabs = TRUE,
+        xtable.caption.placement = "top",
+        xtable.table.placement = "hbtp",
+        xtable.sanitize.colnames.function = identity)
 ```
 
 # Introduction
+
 
