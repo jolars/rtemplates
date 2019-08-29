@@ -1,7 +1,8 @@
 ---
 title: "Title"
 subtitle: "Subtitle"
-papersize: a4
+documentclass: scrartcl
+classoption: "DIV=calc"
 author: "Johan Larsson"
 affiliation: "Department of Statistics, Lund University"
 date: "`r Sys.Date()`"

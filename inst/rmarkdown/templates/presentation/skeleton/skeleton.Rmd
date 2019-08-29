@@ -10,11 +10,14 @@ fonttheme:
 output: 
   rmdplugr::pdf_presentation:
     colortheme: dove
+    extra_dependencies:
+      - mathtools
+      - booktabs
 header-includes:
   - | 
     `\setbeamertemplate{frametitle}[default][center]`{=latex}
     `\setbeamertemplate{itemize items}[circle]`{=latex}
-    `\setbeamertemplate{headline}{\vskip5ex}`{=latex}
+    `\setbeamertemplate{headline}{\vskip4ex}`{=latex}
 ---
 
 ```{r setup, include = FALSE}
@@ -47,7 +50,10 @@ if (!interactive()) {
 options(digits = 3,
         xtable.comment = FALSE,
         xtable.size = "small",
-        xtable.booktabs = TRUE)
+        xtable.booktabs = TRUE,
+        xtable.caption.placement = "top",
+        xtable.table.placement = "hbtp",
+        xtable.sanitize.colnames.function = identity)
 ```
 
 # First Section
