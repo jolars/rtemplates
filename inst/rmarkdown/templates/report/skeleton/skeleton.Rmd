@@ -13,9 +13,9 @@ output:
     citation_package: "biblatex"
     extra_dependencies: "mathtools"
 header-includes:
-  - \DeclareMathOperator{\E}{E}
-  - \DeclareMathOperator{\Var}{Var}
-  - \DeclareMathOperator{\Cov}{Cov}
+  - \DeclareMathOperator{\E}{\text{E}}
+  - \DeclareMathOperator{\Var}{\text{Var}}
+  - \DeclareMathOperator{\Cov}{\text{Cov}}
 ---
 
 ```{r, include = FALSE}
