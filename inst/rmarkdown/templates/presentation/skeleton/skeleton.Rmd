@@ -52,6 +52,13 @@ options(digits = 3,
         xtable.caption.placement = "top",
         xtable.table.placement = "hbtp",
         xtable.sanitize.colnames.function = identity)
+
+options(tikzMetricPackages = c("\\usepackage[utf8]{inputenc}",
+                               "\\usepackage[T1]{fontenc}", 
+                               "\\usetikzlibrary{calc}",
+                               "\\usepackage{amssymb}",
+                               "\\usepackage{mathtools}",
+                               "\\usepackage{isomath}"))
 ```
 
 # First Section
