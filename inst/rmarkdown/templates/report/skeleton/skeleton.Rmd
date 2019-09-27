@@ -10,10 +10,8 @@ header: true
 output: 
   rmdplugr::pdf_article:
     citation_package: "biblatex"
-    extra_dependencies:
-      - mathtools
-      - isomath
 header-includes:
+  - \usepackage{mathtools,isomath}
   - \DeclareMathOperator{\E}{\text{E}}
   - \DeclareMathOperator{\Var}{\text{Var}}
   - \DeclareMathOperator{\Cov}{\text{Cov}}
