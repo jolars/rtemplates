@@ -1,8 +1,7 @@
 ---
 title: "Title"
-subtitle: "Subtitle"
-documentclass: scrartcl
-classoption: "DIV=calc"
+subtitle: ""
+papersize: a4
 author: "Johan Larsson"
 affiliation: "Department of Statistics, Lund University"
 date: "`r Sys.Date()`"
@@ -11,30 +10,31 @@ header: true
 output: 
   rmdplugr::pdf_article:
     citation_package: "biblatex"
-    extra_dependencies: "mathtools"
+    extra_dependencies:
+      - mathtools
+      - isomath
 header-includes:
   - \DeclareMathOperator{\E}{\text{E}}
   - \DeclareMathOperator{\Var}{\text{Var}}
   - \DeclareMathOperator{\Cov}{\text{Cov}}
+  - \renewcommand{\vec}{\vectorsym}
+  - \newcommand{\mat}{\matrixsym}
+  - \newcommand{\du}{\mathrm{d}}
 ---
 
 ```{r, include = FALSE}
-knitr::knit_hooks$set(embed = hookr::hook_embedfonts)
-
 knitr::opts_chunk$set(
   echo = FALSE,
   warning = FALSE,
   message = FALSE,
   cache = FALSE,
-  dev = "pdf",
-  dev.args = list(pointsize = 8, family = "CM Roman"),
+  dev = "tikz",
+  dev.args = list(pointsize = 8),
   fig.align = "center",
   fig.width = 2.2,
-  fig.height = 2.2,
-  embed = TRUE
+  fig.height = 2.2
 )
 
-library(extrafont)
 library(lattice)
 library(tactile)
 library(latticeExtra)
@@ -55,5 +55,4 @@ options(digits = 3,
 ```
 
 # Introduction
-
 

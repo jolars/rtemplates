@@ -13,7 +13,14 @@ output:
     extra_dependencies:
       - mathtools
       - booktabs
+      - isomath
 header-includes:
+  - \DeclareMathOperator{\E}{\text{E}}
+  - \DeclareMathOperator{\Var}{\text{Var}}
+  - \DeclareMathOperator{\Cov}{\text{Cov}}
+  - \renewcommand{\vec}{\vectorsym}
+  - \newcommand{\mat}{\matrixsym}
+  - \newcommand{\du}{\mathrm{d}}
   - | 
     `\setbeamertemplate{frametitle}[default][center]`{=latex}
     `\setbeamertemplate{itemize items}[circle]`{=latex}
@@ -21,21 +28,16 @@ header-includes:
 ---
 
 ```{r setup, include = FALSE}
-knitr::knit_hooks$set(embed = hookr::hook_embedfonts)
-
 knitr::opts_chunk$set(
   echo = FALSE,
   warning = FALSE,
   message = FALSE,
-  dev = "pdf",
+  dev = "tikz",
   fig.width = 5,
   fig.height = 3.5,
-  dev.args = list(pointsize = 8,
-                  family = "CM Roman"),
-  embed = TRUE
+  dev.args = list(pointsize = 8)
 )
 
-library(extrafont)
 library(tactile)
 library(lattice)
 library(latticeExtra)
