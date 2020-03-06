@@ -1,25 +1,34 @@
 ---
-title: "Title"
-subtitle: "Subtitle"
+title: ""
+subtitle: ""
 author: "Johan Larsson"
 institute: "Department of Statistics, Lund University"
 date: "`r Sys.Date()`"
 titlegraphic: "lu.pdf"
-theme: metropolis
-fonttheme: professionalfonts
 bibliography: references.bib
+fontsize: "10pt"
 output: 
   rmdplugr::pdf_presentation:
-    citation_package: biblatex
+    colortheme: dove
+setbeamertemplate:
+  - item: itemize items
+    value: circle
+fonttheme:
+  - professionalfonts
+  - structurebold
 header-includes:
-  - \usepackage{mathtools,isomath}
-  - \setbeamertemplate{title graphic}{\vfill\hfill\inserttitlegraphic}
+  - \usepackage{mathtools}
+  - \usepackage{booktabs}
   - \DeclareMathOperator{\E}{\text{E}}
-  - \DeclareMathOperator{\Var}{\text{Var}}
-  - \DeclareMathOperator{\Cov}{\text{Cov}}
-  - \renewcommand{\vec}{\vectorsym}
-  - \newcommand{\mat}{\matrixsym}
-  - \newcommand{\du}{\mathrm{d}}
+  - \DeclareMathOperator{\Var}{Var}
+  - \DeclareMathOperator{\Cov}{Cov}
+  - \usepackage{subfig}
+  - \usepackage{systeme}
+  - | 
+    `\setbeamertemplate{frametitle}[default][center]`{=latex}
+    `\setbeamertemplate{itemize items}[circle]`{=latex}
+    `\setbeamerfont{frametitle}{size=\large}`{=latex}
+    `\setbeamertemplate{headline}{\vskip5ex}`{=latex}
 ---
 
 ```{r setup, include = FALSE}
@@ -28,16 +37,16 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   cache = FALSE,
-  dev = "tikz",
   fig.width = 5,
   fig.height = 3.5,
   dev.args = list(pointsize = 8)
 )
 
+library(tidyverse)
 library(tactile)
 library(lattice)
 library(latticeExtra)
-library(xtable)
+library(kableExtra)
 
 if (!interactive()) {
   trellis.par.set(tactile.theme(c(10, 5)))
@@ -45,20 +54,7 @@ if (!interactive()) {
   trellis.par.set(tactile.theme(c(12, 8)))
 }
 
-options(digits = 3,
-        xtable.comment = FALSE,
-        xtable.size = "small",
-        xtable.booktabs = TRUE,
-        xtable.caption.placement = "top",
-        xtable.table.placement = "hbtp",
-        xtable.sanitize.colnames.function = identity)
-
-options(tikzMetricPackages = c("\\usepackage[utf8]{inputenc}",
-                               "\\usepackage[T1]{fontenc}", 
-                               "\\usetikzlibrary{calc}",
-                               "\\usepackage{amssymb}",
-                               "\\usepackage{mathtools}",
-                               "\\usepackage{isomath}"))
+options(digits = 3)
 ```
 
 # First Section
