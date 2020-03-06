@@ -5,7 +5,7 @@ Authors@R:
     person(given = "Johan",
            family = "Larsson",
            role = c("aut", "cre"),
-           email = "mail@larssonjohan.com",
+           email = "johanlarsson@outlook.com",
            comment = c(ORCID = "0000-0002-4029-5945"))
 Description: Personal templates for rmarkdown and sweave.
 License: MIT + file LICENSE
