@@ -1,5 +1,5 @@
 ---
-title: "Title"
+title: ""
 subtitle: ""
 papersize: a4
 author: "Johan Larsson"
@@ -13,8 +13,8 @@ output:
 header-includes:
   - \usepackage{mathtools,isomath}
   - \DeclareMathOperator{\E}{\text{E}}
-  - \DeclareMathOperator{\Var}{\text{Var}}
-  - \DeclareMathOperator{\Cov}{\text{Cov}}
+  - \DeclareMathOperator{\Var}{Var}
+  - \DeclareMathOperator{\Cov}{Cov}
   - \renewcommand{\vec}{\vectorsym}
   - \newcommand{\mat}{\matrixsym}
   - \newcommand{\du}{\mathrm{d}}
@@ -26,37 +26,26 @@ knitr::opts_chunk$set(
   warning = FALSE,
   message = FALSE,
   cache = FALSE,
-  dev = "tikz",
   dev.args = list(pointsize = 8),
   fig.align = "center",
-  fig.width = 2.2,
-  fig.height = 2.2
+  fig.width = 2.3,
+  fig.height = 2
 )
 
+library(tidyverse)
 library(lattice)
 library(tactile)
 library(latticeExtra)
-library(xtable)
+library(kableExtra)
 
 if (!interactive()) {
   trellis.par.set(tactile.theme(c(8, 4)))
+} else {
+  trellis.par.set(tactile.theme(c(12, 8)))
 }
 
 options(digits = 3,
-        width = 63,
-        xtable.comment = FALSE,
-        xtable.size = "small",
-        xtable.booktabs = TRUE,
-        xtable.caption.placement = "top",
-        xtable.table.placement = "hbtp",
-        xtable.sanitize.colnames.function = identity)
-
-options(tikzMetricPackages = c("\\usepackage[utf8]{inputenc}",
-                               "\\usepackage[T1]{fontenc}", 
-                               "\\usetikzlibrary{calc}",
-                               "\\usepackage{amssymb}",
-                               "\\usepackage{mathtools}",
-                               "\\usepackage{isomath}"))
+        width = 63)
 ```
 
 # Introduction
