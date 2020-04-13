@@ -12,6 +12,8 @@ affiliation:
 date: "`r Sys.Date()`"
 toc: false
 header: true
+biblio-style: alphabetic
+bibliography: references.bib
 output: 
   rmdplugr::pdf_article:
     citation_package: "biblatex"
@@ -61,73 +63,3 @@ options(digits = 3, width = 63)
 \end{abstract}
 
 # Introduction
-
----
-title: "Strong Sreening Rules for SLOPE"
-papersize: a4
-author:
-  - name: "Johan Larsson"
-    id: "1,*"
-  - name: "Małgorzata Bogdan"
-    id: "1,2"
-  - name: "Jonas Wallin"
-    id: 1
-affiliation:
-  - name: "Department of Statistics, Lund University"
-    id: 1
-  - name: "Department of Mathematics, University of Wroclaw"
-    id: 2
-  - name: "Corresponding author: <johan.larsson@stat.lu.se>"
-    id: "*"
-date: "`r Sys.Date()`"
-toc: false
-header: true
-output: 
-  rmdplugr::pdf_article:
-    citation_package: "biblatex"
-    keep_tex: true
-header-includes:
-  - \usepackage{mathtools,isomath,amsthm,algorithm,algpseudocode}
-  - \usepackage{chngcntr}
-    
-bibliography: slope-screening.bib
----
-
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(
-  echo = FALSE,
-  warning = FALSE,
-  message = FALSE,
-  cache = FALSE,
-  dev = "pdf",
-  dev.args = list(pointsize = 8),
-  fig.align = "center",
-  fig.width = 2.2,
-  fig.height = 2.2
-)
-
-library(tidyverse)
-library(lattice)
-library(tactile)
-library(latticeExtra)
-library(kableExtra)
-
-if (!interactive()) {
-  trellis.par.set(tactile.theme(c(8, 4)))
-} else {
-  trellis.par.set(tactile.theme(c(12, 6)))
-}
-
-# contains the data from the simulations
-library(strong.SLOPE.simulations)
-
-options(digits = 3,
-        width = 63,
-        xtable.comment = FALSE,
-        xtable.size = "small",
-        xtable.booktabs = TRUE,
-        xtable.caption.placement = "top",
-        xtable.include.rownames = FALSE,
-        xtable.table.placement = "hbtp",
-        xtable.sanitize.colnames.function = identity)
-```
