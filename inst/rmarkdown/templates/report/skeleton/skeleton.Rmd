@@ -11,7 +11,7 @@ output:
   rmdplugr::pdf_article:
     citation_package: "biblatex"
 header-includes:
-  - \usepackage{mathtools,isomath}
+  - \usepackage{mathtools,isomath,amsthm,algorithm,algpseudocode}
   - \DeclareMathOperator{\E}{\text{E}}
   - \DeclareMathOperator{\Var}{Var}
   - \DeclareMathOperator{\Cov}{Cov}
@@ -37,6 +37,11 @@ library(lattice)
 library(tactile)
 library(latticeExtra)
 library(kableExtra)
+
+# modified kable function
+kable <- function(x, ...) {
+  knitr::kable(x, escape = FALSE, linesep = "", booktabs = TRUE)
+}
 
 if (!interactive()) {
   trellis.par.set(tactile.theme(c(8, 4)))

@@ -17,7 +17,7 @@ fonttheme:
   - professionalfonts
   - structurebold
 header-includes:
-  - \usepackage{mathtools}
+  - \usepackage{mathtools,amsthm,algorithm,algpseudocode}
   - \usepackage{booktabs}
   - \DeclareMathOperator{\E}{\text{E}}
   - \DeclareMathOperator{\Var}{Var}
@@ -39,6 +39,7 @@ knitr::opts_chunk$set(
   cache = FALSE,
   fig.width = 5,
   fig.height = 3.5,
+  fig.align = "center",
   dev.args = list(pointsize = 8)
 )
 
@@ -47,6 +48,11 @@ library(tactile)
 library(lattice)
 library(latticeExtra)
 library(kableExtra)
+
+# modified kable function
+kable <- function(x, ...) {
+  knitr::kable(x, escape = FALSE, linesep = "", booktabs = TRUE)
+}
 
 if (!interactive()) {
   trellis.par.set(tactile.theme(c(10, 5)))
